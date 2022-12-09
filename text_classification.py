@@ -6,11 +6,11 @@ from tensorflow import keras
 from keras.utils import pad_sequences, plot_model
 from keras.preprocessing.text import Tokenizer
 from keras import Sequential
-from keras.layers import LSTM, Dense, Bidirectional, Embedding
-from keras.callbacks import TensorBoard, ReduceLROnPlateau
+from keras.layers import LSTM, Dense, Embedding
+from keras.callbacks import TensorBoard
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, confusion_matrix
 
 DATASET_PATH = os.path.join(os.getcwd(), 'dataset')
 
@@ -105,7 +105,8 @@ y_pred = np.argmax(model.predict(X_test), axis=1)
 y_true = np.argmax(y_test, axis=1)
 
 # Evaluate prediction
-print(classification_report(y_pred, y_true))
+print('Confusion Matrix:\n', confusion_matrix(y_pred, y_true))
+print('Classification Report:\n', classification_report(y_pred, y_true))
 
 # %% Model saving
 # Save tokenizer
