@@ -3,11 +3,11 @@
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=flat&logo=pandas&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=flat&logo=scikit-learn&logoColor=white)
 
-# A Deep Learning Approach to Text Classification Using LSTM
+# A Deep Learning Approach for Text Classification Using LSTM
 
-The project is created to see the effectiveness of using a deep learning model in classifying the type of intention the article is written for. The model take news article from various news outlet and output the type of the article, whether it is a political news or a world news.
+The project is created to test the effectiveness of utilizing a deep learning model to classify the intention of in the writing of an article. The model take news article from various news outlet and output the type of the article, whether it is a political news or a world news.
  
-The project is made using the LSTM model which was trained with a datasets of 21471 rows of data consisting of 4 columns, of which only 2 were used. The model had achieved an accuracy rate of 94% during testing. The detailed results of the prediction made by the model is visualized in the [Visualization](#visualization) section.
+The project is made using the LSTM model which was trained with a dataset of 21471 rows of data and consisting of 4 columns, of which only 2 were used. The model had achieved an accuracy rate of 94% during testing. The detailed results of the prediction made by the model is visualized in the [Visualization](#visualization) section.
   
 ## Steps Taken
 
