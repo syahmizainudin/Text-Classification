@@ -6,7 +6,7 @@ from tensorflow import keras
 from keras.utils import pad_sequences, plot_model
 from keras.preprocessing.text import Tokenizer
 from keras import Sequential
-from keras.layers import LSTM, Dense, Embedding
+from keras.layers import LSTM, Dense, Embedding, Dropout
 from keras.callbacks import TensorBoard
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
@@ -32,22 +32,25 @@ print(df['text'][8]) # Links, symbols and Twitter username should be remove if p
 features = df['text'] 
 labels = df['subject']
 
-temp =[]
 # Remove unnecessary information in the data and normalize the text
-for idx,text in enumerate(features):
-    features[idx] = re.sub('(^[\w ,./\(\)]*\([\w]+\))|(@[\w]*)|(\[[\w ]+\])|(bit.ly/[\w]*)|([^a-zA-Z])', ' ', text).lower()
-    temp.append(len(features[idx].split()))
+def clean_text(text):
+    filter = '(^[\w ,./\(\)]*\([\w]+\))|(@[\w]*)|(\[[\w ]+\])|(bit.ly/[\w]*)|([^a-zA-Z])'
+    return re.sub(filter, ' ', text).lower()
+
+features = features.apply(clean_text)
 
 # Remove duplicate
 df_drop = pd.concat([features,labels], axis=1)
-df_drop = df.drop_duplicates()
+df_drop = df_drop.drop_duplicates()
 df_drop.duplicated().sum()
 
 print(df_drop['text'][8])
 
 # Number of words
-np.median(temp)
-np.mean(temp)
+word_count = [len(text.split()) for text in features]
+
+np.median(word_count)
+np.mean(word_count)
 
 # %% 4. Features selection
 # Define the labels
