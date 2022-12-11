@@ -46,7 +46,7 @@ The project is made using the LSTM model which was trained with a dataset of 214
 ## Visualization
 
 <p align="center">
-  <img src="resources/Accuracy.png" />
+  <img src="resources/Accuracy.png" height=400/>
 </p>  
 The accuracy graph above shows the improvement of the model's accuracy between each epoch. Albeit some struggle in the earlier epoch, the model managed to improve steadily and finished the training with around 94% accuracy in training and 92% accuracy in validation. The accuracy still show some signs of increasing and might benefit from increasing the number of epoch for training.  
   
